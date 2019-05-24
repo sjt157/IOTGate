@@ -49,9 +49,7 @@ public class moniTerminal {
 //						
 //						channelFuture.channel().writeAndFlush(Unpooled.wrappedBuffer(data));
 //					}else{
-						/**
-						 * 规约类型1
-						 */
+						
 //						byte[] data = StringUtils.decodeHex("681E0081052360541304000024B801000100F007E2071A040F25090000120416");
 						/**
 						 * 规约类型2
@@ -61,7 +59,9 @@ public class moniTerminal {
 						 * 规约类型3
 						 * 684A004A006800114155000000E3000001002342161526044516
 						 */
-						byte[] data = StringUtils.decodeHex("684A004A006800114155000000E3000001002342161526044516");
+						//byte[] data = StringUtils.decodeHex("684A004A006800114155000000E3000001002342161526044516");
+					
+					byte[] data = StringUtils.decodeHex("0000001906343030303132F200077076636C6F7564077076636C6F7564");
 						channelFuture.channel().writeAndFlush(Unpooled.wrappedBuffer(data));
 						
 						
@@ -71,7 +71,7 @@ public class moniTerminal {
 				channelFuture.channel().closeFuture().sync();
 				work.shutdownGracefully();
 	}
-	private static int port = 9816; 
+	private static int port = 9812; 
 	
 	public static void main(String[] args) throws InterruptedException {
 		/**
