@@ -13,6 +13,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
 import test.CountHelper;
 
 
@@ -32,7 +33,7 @@ public class moniTerminal {
 
 			@Override
 			protected void initChannel(SocketChannel sc) throws Exception {
-				
+				sc.pipeline().addLast(new FixedLengthFrameDecoder(29));
 				sc.pipeline().addLast(new moniTerminalHandler());
 			}
 		});
