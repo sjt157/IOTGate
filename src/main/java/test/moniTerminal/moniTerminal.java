@@ -33,6 +33,7 @@ public class moniTerminal {
 
 			@Override
 			protected void initChannel(SocketChannel sc) throws Exception {
+				//解决黏包问题，这里使用了固定长度的Decoder，因为发送的字节长度是29.
 				sc.pipeline().addLast(new FixedLengthFrameDecoder(29));
 				sc.pipeline().addLast(new moniTerminalHandler());
 			}
